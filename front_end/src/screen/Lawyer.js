@@ -27,7 +27,7 @@ export default function Lawyer()
 			console.log(error);
 		}
 	
-		navigate("/Lawyer")
+		navigate("/Result")
 		
 	}
 	return (

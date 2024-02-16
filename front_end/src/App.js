@@ -5,6 +5,7 @@ import {Route,Routes} from "react-router-dom";
 import Judge from './screen/Judge';
 import Lawyer from './screen/Lawyer';
 import People from './screen/People';
+import Result from './screen/Result';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/Judge' Component={Judge}></Route>
         <Route path='/Lawyer' Component={Lawyer}></Route>
         <Route path='/People' Component={People}></Route>
+        <Route path='/Result' Component={Result}></Route>
       </Routes>
     </div>
   );

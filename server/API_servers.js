@@ -36,6 +36,33 @@ app.post("/upload",upload.single("file"),(req,res)=>{
 res.send("file uploaded")
 })
 
+//End point to get summary
+app.get("/summary",(req,res)=>{
+	const { spawn } = require('child_process');
+    const pyProg = spawn('python', ['legal_lens.py']);
+
+    pyProg.stdout.on('data', function(data) {
+
+        //console.log(data.toString());
+        //res.write(data);
+        //res.end('end');
+		
+    });
+
+	pyProg.on("close",(code)=>
+	{
+		console.log(code);
+	})
+
+	fs.readFile('../Output_summary/result.txt', 'utf8', function(err, data){
+		// Display the file content
+		console.log(data);
+		res.send(data)
+	});
+	 
+	console.log('readFile called');
+})
+
 app.listen(PORT,()=>{
 	console.log("Server listening to port ",PORT);
 })
