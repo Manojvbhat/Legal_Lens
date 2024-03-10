@@ -9,7 +9,7 @@ Final Year Project . Legal Lens is an NLP application which gives sample verdict
 > cd front_end
 ### install dependencies
 > node install
-run the dashboard using
+### run the dashboard using
 > npm start
 ### cd to server
 > node API_servers.js
