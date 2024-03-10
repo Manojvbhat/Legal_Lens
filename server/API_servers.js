@@ -38,12 +38,13 @@ res.send("file uploaded")
 
 //End point to get summary
 app.get("/summary",(req,res)=>{
+	console.log("API call successfull");
 	const { spawn } = require('child_process');
     const pyProg = spawn('python', ['legal_lens.py']);
 
     pyProg.stdout.on('data', function(data) {
 
-        //console.log(data.toString());
+        console.log(data.toString());
         //res.write(data);
         //res.end('end');
 		
@@ -54,7 +55,7 @@ app.get("/summary",(req,res)=>{
 		console.log(code);
 	})
 
-	fs.readFile('../Output_summary/result.txt', 'utf8', function(err, data){
+	fs.readFile('../Output_summary/summary.txt', 'utf8', function(err, data){
 		// Display the file content
 		console.log(data);
 		res.send(data)

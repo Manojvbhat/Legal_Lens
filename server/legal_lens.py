@@ -1,11 +1,12 @@
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
+import os 
 
 # Load the fine-tuned model and tokenizer
-model = PegasusForConditionalGeneration.from_pretrained("../Legal_lens_model")
-tokenizer = PegasusTokenizer.from_pretrained("nsi319/legal-pegasus")
+model = PegasusForConditionalGeneration.from_pretrained("mvbhat/Legal_lens")
+tokenizer = PegasusTokenizer.from_pretrained("mvbhat/Legal_lens")
 
 # Read text from a file
-with open("Input_folder/", "r") as file:
+with open("Input_folder/sjudge.txt", "r") as file:
     input_text = file.read()
 
 # Tokenize the input text
@@ -18,5 +19,5 @@ summary_ids = model.generate(inputs["input_ids"], attention_mask=inputs["attenti
 summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
 # Save the summary to a file
-with open("../Output_summary/summary.txt", "w") as file:
+with open("Output_summary/summary.txt", "w") as file:
     file.write(summary)

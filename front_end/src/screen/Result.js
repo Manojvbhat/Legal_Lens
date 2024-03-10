@@ -20,6 +20,7 @@ export default function Result(){
       } catch (error) {
         console.error('no data', error);
       } finally {
+        
         setLoading(false);
       }
     };
