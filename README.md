@@ -9,24 +9,7 @@ Final Year Project . Legal Lens is an NLP application which gives sample verdict
 > cd front_end
 ### install dependencies
 > node install
-### come back to root directory
-> cd ..
-### cd to server
-> cd server
-### install spacy using pip 
-check if you have pip installed
-> pip --version
-if not installed install it using these command
-> curl https://bootst/rap.pypa.io/get-pip.py -o get-pip.py
-> python get-pip.py
-after installing pip install spacy
-> pip install -U pip setuptools wheel
-> pip install -U spacy
-> python -m spacy download en_core_web_sm
-after installing spacy, run the script by 
-> python text_refine.py
-### cd back to root directory 
-> cd ..
-### cd to front_end
 run the dashboard using
 > npm start
+### cd to server
+> node API_servers.js
