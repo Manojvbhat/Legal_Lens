@@ -5,7 +5,7 @@ import fs from "fs"
 import multer from "multer"
 import { fileURLToPath } from "url"
 import cors from "cors"
-
+import {spawn} from "child_process"
 // res.header( "Access-Control-Allow-Origin" );
 
 const PORT= process.env.PORT || 8000
@@ -39,7 +39,8 @@ res.send("file uploaded")
 //End point to get summary
 app.get("/summary",(req,res)=>{
 	console.log("API call successfull");
-	const { spawn } = require('child_process');
+	// const { spawn } = require('child_process');
+	
     const pyProg = spawn('python', ['legal_lens.py']);
 
     pyProg.stdout.on('data', function(data) {

@@ -7,16 +7,24 @@ tokenizer = PegasusTokenizer.from_pretrained("mvbhat/Legal_lens")
 
 # Read text from a file
 with open("Input_folder/sjudge.txt", "r") as file:
-    input_text = file.read()
+    text = file.read()
 
 # Tokenize the input text
-inputs = tokenizer([input_text], truncation=True, padding="max_length", max_length=512, return_tensors="pt")
+input_tokenized = tokenizer.encode(text, return_tensors='pt',max_length=1024,truncation=True)
 
 # Generate the summary
-summary_ids = model.generate(inputs["input_ids"], attention_mask=inputs["attention_mask"], max_length=128)
+summary_ids = model.generate(input_tokenized,
+                                  num_beams=3,
+                                  no_repeat_ngram_size=3,
+                                  length_penalty=1.0,
+                                  min_length=150,
+                                  max_length=400,
+                                  early_stopping=True)
 
 # Decode the summary
-summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+summary = [tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=False) for g in summary_ids][0]
+
+print(summary)
 
 # Save the summary to a file
 with open("Output_summary/summary.txt", "w") as file:
