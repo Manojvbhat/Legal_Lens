@@ -14,11 +14,11 @@ input_tokenized = tokenizer.encode(text, return_tensors='pt',max_length=1024,tru
 
 # Generate the summary
 summary_ids = model.generate(input_tokenized,
-                                  num_beams=3,
-                                  no_repeat_ngram_size=3,
-                                  length_penalty=1.0,
-                                  min_length=150,
-                                  max_length=400,
+                                  num_beams=2,
+                                  no_repeat_ngram_size=1,
+                                  length_penalty=0.2,
+                                  min_length=100,
+                                  max_length=150,
                                   early_stopping=True)
 
 # Decode the summary
