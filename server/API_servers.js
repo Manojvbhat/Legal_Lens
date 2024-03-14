@@ -36,34 +36,36 @@ app.post("/upload",upload.single("file"),(req,res)=>{
 res.send("file uploaded")
 })
 
-//End point to get summary
-app.get("/summary",(req,res)=>{
-	console.log("API call successfull");
-	// const { spawn } = require('child_process');
+// //End point to get summary
+// app.get("/summary",(req,res)=>{
+// 	console.log("API call successfull");
+// 	// const { spawn } = require('child_process');
 	
-    const pyProg = spawn('python', ['legal_lens.py']);
+//     const pyProg = spawn('python', ['legal_lens.py']);
 
-    pyProg.stdout.on('data', function(data) {
+//     pyProg.stdout.on('data', function(data) {
 
-        console.log(data.toString());
-        //res.write(data);
-        //res.end('end');
+//         console.log(data);
+// 		fs.writeFile("./Output_summary/summary.txt",data)
+// 		res.send(data)
+//         //res.write(data);
+//         //res.end('end');
 		
-    });
+//     });
 
-	pyProg.on("close",(code)=>
-	{
-		console.log(code);
-	})
+// 	pyProg.on("close",(code)=>
+// 	{
+// 		console.log(code);
+// 	})
 
-	fs.readFile('../Output_summary/summary.txt', 'utf8', function(err, data){
-		// Display the file content
-		console.log(data);
-		res.send(data)
-	});
+// 	// fs.readFile('../Output_summary/summary.txt', 'utf8', function(err, data){
+// 	// 	// Display the file content
+// 	// 	console.log(data);
+// 	// 	res.send(data)
+// 	// });
 	 
-	console.log('readFile called');
-})
+// 	console.log('readFile called');
+// })
 
 app.listen(PORT,()=>{
 	console.log("Server listening to port ",PORT);

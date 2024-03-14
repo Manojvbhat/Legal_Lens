@@ -10,7 +10,7 @@ import Result from './screen/Result';
 function App() {
 
   return (
-    <div className=" h-screen bg-gradient-to-r from-cyan-500 to-blue-500" >
+    <div className=" h-screen bg-gradient-to-r from-cyan-500 items-center to-blue-500" >
       
       {/* <Heading></Heading>
       <Cards></Cards> */}
