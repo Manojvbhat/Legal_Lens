@@ -1,29 +1,10 @@
-# Define the virtual environment directory
-VENV_DIR = .venv
-
-# Define the paths
-REQUIREMENTS = requirements.txt
-PACKAGE_JSON = package.json
-FRONTEND_DIR = frontend
+FRONTEND_DIR = front_end
 SERVER_DIR = server
-
-.PHONY: all setup_python_env install_python_deps install_node_deps run_python_server run_frontend run_node_server clean
+VENV_DIR = .venv
+.PHONY: all run_python_server run_frontend run_node_server clean
 
 # Main target: setup and run everything
-all: setup_python_env install_python_deps install_node_deps run_servers
-
-# Setup Python virtual environment
-setup_python_env:
-	python -m venv $(VENV_DIR)
-	source .venv/bin/activate
-
-# Install Python dependencies
-install_python_deps: setup_python_env
-	$(VENV_DIR)/Scripts/pip install -r $(REQUIREMENTS)
-
-# Install Node.js dependencies
-install_node_deps:
-	npm install
+all: run_servers
 
 # Run the Python server
 run_python_server:
