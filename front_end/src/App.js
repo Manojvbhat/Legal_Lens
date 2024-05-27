@@ -6,6 +6,7 @@ import Judge from './screen/Judge';
 import Lawyer from './screen/Lawyer';
 import People from './screen/People';
 import Result from './screen/Result';
+import Verdict from './screen/Verdict';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/Lawyer' Component={Lawyer}></Route>
         <Route path='/People' Component={People}></Route>
         <Route path='/Result' Component={Result}></Route>
+        <Route path='/Verdict' Component={Verdict}></Route>
       </Routes>
     </div>
   );
