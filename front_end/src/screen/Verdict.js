@@ -15,21 +15,24 @@ export default function Verdict()
     
 
     return(
-    <div>
-           { time===5 ? <Comment
+    <div className=" flex justify-center text-center items-center ">
+           { time ? 
+           <div className=" my-14">  	
+        <Comment
         visible={true}
-        height="200"
-        width="200"
+        height="600"
+        width="600"
         ariaLabel="comment-loading"
         wrapperStyle={{}}
         wrapperClass="comment-wrapper"
         color="#fff"
         backgroundColor="#F4442E"
         />
+       </div>
         :
     <div>
         <p className=" text-7xl font-extrabold pt-5"> Verdict</p>
-			<textarea className=" p-8 w-full text-black h-56 text-justify overflow-auto mt-20 rounded-2xl" type="text" value="Masala Puri" />
+			<textarea className=" p-8 w-full text-black h-56  text-justify overflow-auto mt-20 rounded-2xl" type="text" value="Masala Puri" />
     </div>}
     </div>
     )
