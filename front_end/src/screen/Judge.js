@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 export default function Judge()
 {
 	async function handleFileChange(event) {
-		const name = event.target.files[0].name;
+		const formdata = new FormData()
+		const file = event.target.files[0];
+		formdata.append("file",file)
 		try{
-			await fetch("http://localhost:8000/file_name", {
+			await fetch("http://localhost:8000/upload", {
 				method: "POST",
-				body: {file_name:`${name}`},
+				body: formdata,
 			  })
 
 	}
